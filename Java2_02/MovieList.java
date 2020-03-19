@@ -1,35 +1,52 @@
 package Java2_02;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class MovieList {
+    private ArrayList<String> movieList = new ArrayList<>();
+
     public static void main(String[] args) {
-        String namemovie;
-        int size;
-        List<String> movie = new ArrayList<>();
+        System.out.println("    Movie List ");
+        System.out.println("-----------------");
 
-        Scanner scanner = new Scanner(System.in);
+        MovieList list = new MovieList();
+        list.addMovie("");
+        list.displayList();
+        list.updateMovie(4,"aaaaaaa");
+        list.removeMovie(3);
+        list.findMove("The room");
 
-        size = scanner.nextInt();
-        for ( int  i = 0;i <size;i++){
-            namemovie = scanner.next();
-            movie.add(namemovie);
+    }
+
+    public void addMovie(String movie){
+        movieList.add("The room");
+        movieList.add("The grudge");
+        movieList.add("They Live");
+        movieList.add("Moneyball");
+        movieList.add("Memorist");
+        System.out.println(movieList);
+    }
+    public void displayList(){
+        System.out.println("You have " + movieList.size() + " item in list");
+        for (int i = 0;i < movieList.size();i++){
+            System.out.println("Movie  " + (i + 1) + "  " + movieList.get(i));
         }
-        for ( int  i = 0;i <size;i++){
-            System.out.println(i+".Name : " + movie.get(i));
-
+    }
+    public void updateMovie(int index, String movie){
+        movieList.set(index,movie);
+        System.out.println("Updated ");
+        System.out.println("Movie  " + (index + 1) + " " + movie);
+    }
+    public void removeMovie(int index){
+        String movie = movieList.get(index);
+        movieList.remove(index);
+        System.out.println("Removed " + movie);
+    }
+    public String findMove(String search){
+        int position = movieList.indexOf(search);
+        if (position > 0 ){
+            return movieList.get(position);
         }
-        movie.add("Moneyball");
-        System.out.println(movie);
-
-        movie.set(2,"Walmart");
-        System.out.println(movie);
-
-        movie.remove(4);
-        System.out.println("After remove : " + movie);
-
-        System.out.printf("indexOf \"Moneyball\" : " + movie.indexOf("Moneyball"));
+        return  null;
     }
 }
