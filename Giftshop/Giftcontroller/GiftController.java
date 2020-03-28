@@ -12,11 +12,7 @@ public class GiftController {
     Scanner scanner = new Scanner(System.in);
 
 
-    public void menu() {
-        System.out.println("1 - Hiển thị toàn bộ danh sách có trong thư việc");
-        System.out.println("2 - Nhập thông tin sách và insert");
-        System.out.println("3 - Nhập id sách muốn xóa và delete ");
-    }
+
 
     public void selectBook() {
         try (
@@ -41,7 +37,7 @@ public class GiftController {
         }
     }
 
-    public void getInsert(Gift gift){
+    public void InsertGift(Gift gift){
         try(
                 //Step1
                 Connection conn = DriverManager.getConnection(
@@ -63,7 +59,7 @@ public class GiftController {
         }
     }
 
-    public void getDelete(int id){
+    public void DeleteGift(int id){
         try(
                 Connection conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/giftshop?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
