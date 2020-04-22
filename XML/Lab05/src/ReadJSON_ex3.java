@@ -8,11 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReadJSON_ex1 {
+public class ReadJSON_ex3 {
     public static void main(String[] args) {
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
-        try(FileReader reader = new FileReader("Exercise1.json"))
+        try(FileReader reader = new FileReader("Exercise3.json"))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
@@ -20,16 +20,14 @@ public class ReadJSON_ex1 {
             JSONObject menuList = (JSONObject) obj;
             System.out.println(menuList);
 
-            JSONObject menuObject = (JSONObject) menuList.get("menu");
-            System.out.println(menuObject);
+            JSONObject menuObjects = (JSONObject) menuList.get("menu");
+            System.out.println(menuObjects);
 
-            JSONObject popup = (JSONObject) menuObject.get("popup");
-            System.out.println(popup);
+            JSONArray itemObjects = (JSONArray) menuObjects.get("item") ;
+            System.out.println(itemObjects);
 
-            JSONArray menuitem = (JSONArray) popup.get("menuitem");
-            System.out.println(menuitem);
-
-
+            String headerObjects = (String) menuObjects.get("header");
+            System.out.println(headerObjects);
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
@@ -38,5 +36,4 @@ public class ReadJSON_ex1 {
             e.printStackTrace();
         }
     }
-
 }
