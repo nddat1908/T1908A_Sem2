@@ -13,7 +13,7 @@ namespace Practice
 
         public override double computeTax()
         {
-            return price * 10;
+            return price * 10 / 100;
         }
     }
 }
