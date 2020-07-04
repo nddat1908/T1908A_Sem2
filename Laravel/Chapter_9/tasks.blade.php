@@ -58,11 +58,11 @@
                                     </td>
 {{--                                    Them nut xoa--}}
                                     <td>
-                                        <form action="/task/{$task->id}" method="post">
+                                        <form action="task/{{$task->id}}" method="post">
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
                                             <button>Delete Task</button>
-                                            <input type="hidden" name="_method" value="DELETE">
+                                            {{--<input type="hidden" name="_method" value="DELETE">--}}
                                         </form>
                                     </td>
                                 </tr>
