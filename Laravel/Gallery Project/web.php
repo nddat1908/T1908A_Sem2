@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('gallery',function (){
+/*Route::get('gallery',function (){
    return view('gallery');
-});
+});*/
+
+Route::get('/gallery','GalleryController@showGallery');
